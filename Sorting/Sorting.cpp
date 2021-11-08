@@ -5,6 +5,8 @@
 #define ArrayAndSize(arr) \
 	arr, (sizeof(arr)/sizeof(arr[0]))
 
+bool oppg2 = false;
+
 void RandomizeArray(int *a, int size)
 {
 	for(auto i= 0; i < size; i++)
@@ -168,9 +170,19 @@ void MergeSort(int a[], int n)
 
 		for (i = lower1; k < n; i++)
 			hjelp[k++] = a[i];
+		
 		for (i = 0; i < n; i++)
+		{
 			a[i] = hjelp[i];
+			
+			if (oppg2)
+				std::cout << a[i] << " ";
 
+		}
+		
+		if (oppg2)
+			std::cout << std::endl;
+		
 		size = size * 2;
 
 	}
@@ -263,11 +275,12 @@ void Oppgave3AEksamen2018()
 
 void Oppgave2BEksamen2019()
 {
+	oppg2 = true;
 	std::cout << "Oppgave 2: " << std::endl;
 	//17,14,5,7,12,1,16,29,13,4,8,18,22,2.
 	int arr[] = { 17, 14, 5 ,7, 12 ,1 ,16, 29 , 13, 4,8,18,22,2 };
 	MergeSort(arr, _countof(arr));
-	PrintArray(arr, _countof(arr));
+	oppg2 = false;
 }
 
 
@@ -276,7 +289,7 @@ int main()
 	srand(time(nullptr));
 
 	//OPPGAVE 1
-	Oppgave3AEksamen2018();
+	 Oppgave3AEksamen2018();
 
 	// OPPGAVE2
 	Oppgave2BEksamen2019();
